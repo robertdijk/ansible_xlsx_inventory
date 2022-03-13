@@ -38,7 +38,7 @@ def main():
     config_path = find_config_file()
     config = load_config(config_path)
     try:
-        wb = load_workbook(config["xlsx_inventory_file"])
+        wb = load_workbook(config["xlsx_inventory_file"], data_only=True)
         sheet = wb[config["sheet"]] if "sheet" in config else wb.active
         inventory = sheet_to_inventory(
             group_by_col=config["group_by_col"],
